@@ -1,0 +1,26 @@
+/* ===== FOOTER SECTION ===== */
+.site-footer {
+  background: #fff;
+  margin: 30px 0px 0px;
+  padding: 15px 5%;
+  text-align: center;
+  line-height: 30px;
+    color: rgb(42, 42, 42);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-wrapper {
+  width: 100%;
+}
+
+.footer-text {
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-text {
+    font-size: 12px;
+  }
+}

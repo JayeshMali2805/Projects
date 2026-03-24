@@ -1,0 +1,238 @@
+/* Container Styles */
+.info-section {
+  padding: 140px 0px 200px 0px;
+  font-family: "Poppins", sans-serif;
+  position: relative;
+  /* Using your background image */
+  background: url("../images/about-bg.png") no-repeat center center/cover;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Image Column */
+.info-visual {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.info-visual img {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* Text & Grid Column */
+.info-details {
+  flex: 2;
+  min-width: 300px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+/* --- THE WRAPPING LOGIC --- */
+
+/* Feature Box Fade In Animation */
+.feature-box {
+  display: block; /* Allows text to wrap around the floated icon */
+  color: #ffffff;
+  overflow: hidden; /* Contains the float within the box */
+  margin-bottom: 20px;
+  
+  /* Start hidden so they can fade in */
+  opacity: 0;
+  /* Run the animation once */
+  animation: fadeInUpEffect 0.8s ease-out forwards;
+}
+
+/* --- Staggered Delays (One after another) --- */
+.feature-box:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.feature-box:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.feature-box:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.feature-box:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.box-icon {
+  float: left; /* Essential for wrapping */
+  width: 75px;
+  height: 75px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px; /* Space between icon and the text on the right */
+  margin-bottom: 5px; /* Space before text starts wrapping under the circle */
+}
+.box-text h3 {
+  font-size: 20px;
+  margin: 0 0 5px 0; /* Zero margin top keeps it aligned with the top of the icon */
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.2; /* Normal line height so it stays at the top */
+}
+
+.box-text p {
+  font-size: 16px;
+  line-height: 30px; /* Adjusting this controls how many lines stay to the right */
+  color: #ffffff;
+  margin: 0;
+  text-align: justify; /* Optional: makes the wrapping look cleaner */
+}
+
+/* Clearfix for grid stability */
+.feature-box::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Clearfix to ensure grid doesn't break */
+.feature-box::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* =========================================
+   KEYFRAMES (The Animation Logic)
+   ========================================= */
+
+/* Floating Effect Logic */
+@keyframes floatingEffect {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  /* Moves up 15px */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Fade In Up Logic */
+@keyframes fadeInUpEffect {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+    /* Starts slightly lower */
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    /* Ends in correct position */
+  }
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 992px) {
+  .content-wrapper {
+    flex-direction: column-reverse; 
+    width: 100%;                 /* ✅ FIXED */
+    max-width: 750px;            /* ✅ keeps content centered */
+    margin: 0 auto;              /* ✅ center container */
+    gap: 30px;
+    position: relative;
+    background-image: none;
+    padding: 0;
+  }
+
+  /* Force the text/grid container to take full width */
+  .info-details {
+    width: 100%;
+    flex: none;
+  }
+
+  /* ✅ GRID CENTER FIX */
+  .grid-container {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 650px;           /* ✅ prevent too wide cards */
+    margin: 0 auto;             /* ✅ center grid */
+    gap: 25px;
+  }
+
+  /* Section background fix */
+  .info-section {
+    padding: 60px 20px;
+    background: #ffffff;
+  }
+
+  /* Card styling (unchanged, only alignment improved) */
+  .feature-box {
+    width: 100%;
+    margin: 0 auto;             /* ✅ center cards */
+    background: linear-gradient(
+      105deg,
+      rgba(255, 77, 30, 1) 0%,
+      rgba(255, 44, 109, 1) 100%
+    );
+    padding: 30px;
+    border-radius: 20px;
+    display: block;
+  }
+
+  /* Icon styling */
+  .box-icon {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    margin-bottom: 6px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .box-text {
+    width: 100%;
+  }
+
+  .box-text h3 {
+    text-align: left;
+    margin: 0;
+    padding-top: 5px;
+    line-height: normal;
+    font-size: 24px;
+    color: #ffffff;
+    display: block;
+  }
+
+  .box-text p {
+    line-height: 26px;
+    font-size: 15px;
+    color: #ffffff;
+    text-align: start;
+  }
+
+  .info-visual {
+    width: 100%;
+    margin-top: 30px;
+  }
+}

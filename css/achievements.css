@@ -1,0 +1,219 @@
+/* =========================================
+   ACHIEVEMENTS SECTION (FINAL CSS ONLY)
+   ========================================= */
+
+.achievements-section {
+    padding: 0;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+/* =======================
+   SLIDER CONTAINER
+   ======================= */
+.slider-container {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    margin: auto;
+}
+
+/* =======================
+   SLIDER TRACK (DESKTOP)
+   ======================= */
+.slider-track {
+    display: flex;
+    gap: 50px;
+    width: max-content;                 /* required for CSS-only loop */
+    animation: scrollSlider 20s linear infinite;
+    transform: translateX(0);
+    will-change: transform;
+}
+
+/* Pause animation on hover */
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+/* Infinite scroll animation */
+@keyframes scrollSlider {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* =======================
+   SECTION TITLE
+   ======================= */
+.section-title h2 {
+    font-weight: 800;
+    color: #000;
+    font-size: 30px;
+    line-height: 44px;
+    text-align: center;       /* ✅ CENTER TEXT */
+    width: 100%;               /* ✅ FULL WIDTH */
+    margin: 0 auto;            /* ✅ CENTER BLOCK */
+}
+
+.section-title span {
+    font-weight: 800;
+    color: red;
+    font-size: 30px;
+    line-height: 44px;
+}
+
+/* =======================
+   CARD ITEM
+   ======================= */
+.flip-card-item {
+    flex: 0 0 340px;
+    width: 340px;
+    height: 300px;
+    perspective: 1200px;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.flip-card-item:hover {
+    transform: scale(1.03);
+}
+
+/* =======================
+   CARD INNER
+   ======================= */
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    text-align: center;
+    transition: transform 1.2s ease-in-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+}
+
+/* =======================
+   CARD FRONT / BACK
+   ======================= */
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Initial state */
+.flip-card-front {
+    transform: rotateY(0deg);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Hover flip */
+.flip-card-item:hover .flip-card-front {
+    transform: rotateY(180deg);
+    transition-delay: 0.1s;
+}
+
+.flip-card-item:hover .flip-card-back {
+    transform: rotateY(360deg);
+    transition-delay: 0.1s;
+}
+
+/* =======================
+   CARD COLORS
+   ======================= */
+.flip-card-front {
+    background-color: #03a4ed;
+    color: #fff;
+}
+
+.flip-card-front h4 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000;
+    margin: 0 0 5px;
+}
+
+.flip-card-front p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 2px 0;
+}
+
+.role-text {
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.flip-card-back {
+    background-color: #03a4ed;
+    color: #333;
+    border: 1px solid #eee;
+}
+
+/* =======================
+   IMAGE CIRCLE
+   ======================= */
+.img-circle {
+    width: 120px;
+    height: 120px;
+    background: #fff;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.img-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS (VIDEO MATCH)
+   ========================================= */
+@media (max-width: 991px) {
+
+    .slider-container {
+        padding-left: 12px;      /* creates peek */
+    }
+
+    .slider-track {
+        gap: 16px;
+        animation: scrollSlider 26s linear infinite; /* slower like video */
+    }
+
+    /* ONE CENTERED CARD + PEEK */
+    .flip-card-item {
+        /* flex: 0 0 85vw;          KEY FIX */
+        width: 85vw;
+        max-width: 85vw;
+        height: 280px;
+    }
+
+    /* Smooth mobile swipe */
+    .slider-container {
+        touch-action: pan-x;
+    }
+}

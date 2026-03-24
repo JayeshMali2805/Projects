@@ -1,0 +1,187 @@
+/* --- Base Layout Styles --- */
+.tech-section {
+  
+  padding: 0;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden; /* Essential: prevents scrollbars during animation */
+}
+
+.tech-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 50px;
+}
+
+/* --- Animation Keyframes --- */
+@keyframes techSlideFromLeft {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes techSlideFromRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* --- Desktop Columns & Animations --- */
+.tech-visual {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+  animation: techSlideFromLeft 1s ease-out forwards;
+}
+
+.tech-visual img {
+  max-width: 100%;
+  height: auto;
+}
+
+.tech-info {
+  flex: 1;
+  min-width: 300px;
+  animation: techSlideFromRight 1s ease-out forwards;
+}
+
+.tech-header h2 {
+  
+  font-size: 30px;
+
+  color: #2a2a2a;
+  font-weight: 700;
+  letter-spacing: 0.25px;
+  position: relative;
+  z-index: 2;
+  line-height: 44px;
+  margin-right: 100px;
+}
+.tech-header p {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    font-size: 15px;
+    line-height: 30px;
+    color: #2a2a2a;
+}
+
+.tech-subtitle {
+  color: #03a4ed;
+  font-weight: 700;
+  margin: 25px 0 15px 0;
+}
+
+/* --- Progress Bars --- */
+.tech-skill-item {
+  margin-bottom: 20px;
+  opacity: 0; /* Hidden initially for staggered animation */
+  animation: techSlideFromRight 0.8s ease-out forwards;
+}
+
+/* Staggered animation delays */
+.tech-skill-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.tech-skill-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.tech-skill-item:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.tech-skill-item:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.tech-label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #444;
+}
+
+.tech-bar-bg {
+  width: 100%;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tech-bar-fill {
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 77, 30, 1) 0%,
+    rgba(255, 44, 109, 1) 100%
+  );
+  border-radius: 10px;
+  transition: width 1.5s ease-in-out; /* Smooth fill effect */
+}
+
+/* Bar Widths */
+.tech-width-90 {
+  width: 35%;
+}
+.tech-width-85 {
+  width: 60%;
+}
+.tech-width-80 {
+  width: 45%;
+}
+.tech-width-75 {
+  width: 40%;
+}
+
+/* --- Responsive View (Tablets & Mobile) --- */
+@media (max-width: 992px) {
+  .tech-row {
+    flex-direction: column; /* Stacks illustration on top */
+    text-align: center;
+    gap: 30px;
+  }
+
+  .tech-visual {
+    width: 100%;
+    animation: techSlideFromLeft 1s ease-out forwards;
+  }
+
+  .tech-info {
+    width: 100%;
+    padding: 30px 20px;
+    background: #fdfdfd;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* "Separated card" look */
+    animation: techSlideFromRight 1s ease-out forwards;
+  }
+
+  .tech-header h2 {
+    font-size: 26px;
+  }
+
+  .tech-bar-bg {
+    height: 12px; /* Slightly thicker bars for touch devices */
+  }
+}
+
+@media (max-width: 480px) {
+  .tech-section {
+    padding: 40px 10px;
+  }
+}

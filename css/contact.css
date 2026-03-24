@@ -1,0 +1,280 @@
+/* ===== CONTACT SECTION ===== */
+.contact-area {
+  /* background: #0f172a; */
+  padding: 80px 5%;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Image Using ::before */
+
+.contact-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)),
+
+    url("../images/contact-bg.png") no-repeat center center / cover;
+  opacity: 1;
+  z-index: 0;
+    background-position: 65% center; /* shift slightly to right */
+  
+}
+
+
+.contact-wrapper {
+    position: relative;
+    z-index: 1;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* LEFT SIDE */
+.contact-info-box {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.contact-address {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  
+}
+
+.contact-details p {
+  margin: 8px 0;
+}
+
+.contact-details a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  margin: 15px 0;
+}
+
+.social-links a {
+  margin-right: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.services-list h3 {
+  margin-top: 25px;
+  font-size: 22px;
+}
+
+.services-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.services-list li {
+  margin: 8px 0;
+}
+
+/* RIGHT SIDE FORM */
+.contact-form-box {
+  flex: 1;
+  min-width: 300px;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 100px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: #d1f3ff;
+  
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 120px;
+  border-radius: 20px;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: #666; /* placeholder color */
+  opacity: 1;  /* important */
+}
+
+
+.submit-btn {
+    display: inline-block;
+  background-color: #03a4ed;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  padding: 12px 25px;
+  border-radius: 100px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  text-transform: capitalize;
+  letter-spacing: 0.25px;
+  transition: 0.3s;
+  width: fit-content;
+  align-self: flex-start;
+}
+
+.submit-btn:hover {
+  background: #e63939;
+}
+
+
+
+
+/* ===== RESPONSIVE CONTACT SECTION (MOBILE VIEW ONLY) ===== */
+@media (max-width: 768px) {
+
+  .contact-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  /* LEFT INFO BOX CENTERED */
+  .contact-info-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .contact-title {
+    font-size: 28px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .contact-address {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 15px auto;
+  }
+
+  /* CONTACT DETAILS CENTERED LIKE 2nd IMAGE */
+  .contact-details p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
+    font-size: 14px;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .social-links a {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  /* SERVICES LIST CENTERED */
+  .services-list {
+    margin-top: 20px;
+    display: none;
+  }
+
+ 
+
+  /* RIGHT FORM FULL WIDTH */
+  .contact-form-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+  }
+
+  .submit-btn {
+    align-self: center;
+  }
+}
+
+
+
+
+
+/* ===== CONTACT SECTION ANIMATION ===== */
+
+/* Left box animation */
+.contact-info-box {
+  animation: slideFromLeft 0.95s ease forwards;
+}
+
+/* Right form animation */
+.contact-form-box {
+  animation: slideFromRight 0.95s ease forwards;
+}
+
+/* Keyframes */
+@keyframes slideFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(300px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
